@@ -23,7 +23,7 @@ class GeminiNode(Node):
     
     def gemini_callback(self, msg):
 
-        self.get_logger().info(f"Subscribed /input_text: {msg.data}")
+        self.get_logger().info(f"Subscribed /gemini/input_text: {msg.data}")
         self.prompt = msg.data
 
         self.res = self.chat.send_message(self.prompt)
@@ -31,7 +31,7 @@ class GeminiNode(Node):
         self.output_msg.data = self.res.text
         self.text_publisher.publish(self.output_msg)
 
-        self.get_logger().info(f"Published /output_text: {self.output_msg.data}")
+        self.get_logger().info(f"Published /gemini/output_text: {self.output_msg.data}")
 
 def main(args=None):
 
