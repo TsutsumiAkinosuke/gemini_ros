@@ -13,7 +13,7 @@ class GeminiNode(Node):
 
         genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
-        self.model = genai.GenerativeModel("gemini-pro")
+        self.model = genai.GenerativeModel("gemini-2.0-flash")
         self.chat = self.model.start_chat(history=[])
 
         self.output_msg = String()
